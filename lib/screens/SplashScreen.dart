@@ -27,18 +27,12 @@ class _SplashScreenState extends State<SplashScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image(
-            height: 200,
-            image: AssetImage('images/store.jpg'),
-          ),
-          SizedBox(
-            height: 15.0,
-          ),
           Center(
-              child: Text(
-            'Sat Store',
-            style: TextStyle(fontSize: 30),
-          ))
+            child: Image(
+              height: 200,
+              image: AssetImage('images/store.jpg'),
+            ),
+          ),
         ],
       ),
     );

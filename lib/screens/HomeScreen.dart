@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Icon(
-              Icons.menu_book,
+              Icons.menu_open_outlined,
               size: 35,
               color: Colors.red.shade600,
             ),
@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
               onPressed: () {},
               icon: Icon(
-                Icons.shopping_bag,
+                Icons.shopping_bag_outlined,
                 color: Colors.red.shade600,
               )),
           IconButton(

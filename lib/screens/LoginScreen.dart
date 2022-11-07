@@ -29,12 +29,13 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Center(
-                  child: Text(
-                    'Sat Store',
-                    style: TextStyle(
-                        fontSize: 26,
-                        color: Colors.red.shade600,
-                        fontWeight: FontWeight.bold),
+                  child: Material(
+                    elevation: 5.0,
+                    shadowColor: Colors.white,
+                    child: Image(
+                      height: 70,
+                      image: AssetImage('images/store.jpg'),
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -50,44 +51,64 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: 35.0,
                 ),
-                TextFormField(
-                  decoration: InputDecoration(
-                    hintText: 'Email',
-                    labelText: 'Email',
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 0.4, color: Colors.grey)),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                Material(
+                  elevation: 2.0,
+                  shadowColor: Colors.red.shade100,
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: 'Email',
+                      labelText: 'Email',
+                      enabledBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(width: 0.4, color: Colors.grey)),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(
                   height: 10.0,
                 ),
-                TextFormField(
-                  decoration: InputDecoration(
-                    hintText: 'Password',
-                    labelText: 'Password',
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(width: 0.4, color: Colors.grey)),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                Material(
+                  elevation: 2.0,
+                  shadowColor: Colors.red.shade100,
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: 'Password',
+                      labelText: 'Password',
+                      enabledBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(width: 0.4, color: Colors.grey)),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(
                   height: 30,
                 ),
-                Container(
-                  height: 50,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5.0),
-                      color: Colors.red.shade600),
-                  child: Center(
-                    child: Text(
-                      'Sign up',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
+                InkWell(
+                  onTap: (){
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => HomeScreen())
+                    );
+                  },
+                  child: Container(
+                    height: 50,
+                    decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(color: Colors.red.shade400, blurRadius: 5.0)
+                        ],
+                        borderRadius: BorderRadius.circular(5.0),
+                        color: Colors.red.shade600),
+                    child: Center(
+                      child: Text(
+                        'Sign in',
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                 ),
@@ -106,37 +127,49 @@ class _LoginScreenState extends State<LoginScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    IconButton(
-                        icon: Icon(
-                          FontAwesomeIcons.google,
-                          size: 40,
-                          color: Colors.red.shade500,
-                        ),
-                        onPressed: () {
-                          print("Pressed");
-                        }),
-                    IconButton(
-                        icon: Icon(
-                          FontAwesomeIcons.facebook,
-                          size: 40,
-                          color: Colors.red.shade500,
-                        ),
-                        onPressed: () {
-                          print("Pressed");
-                        }),
-                    IconButton(
-                        icon: Icon(
-                          FontAwesomeIcons.twitter,
-                          size: 40,
-                          color: Colors.red.shade500,
-                        ),
-                        onPressed: () {
-                          print("Pressed");
-                        }),
+                    Material(
+                      elevation: 2.0,
+                      shadowColor: Colors.pinkAccent,
+                      child: IconButton(
+                          icon: Icon(
+                            FontAwesomeIcons.google,
+                            size: 35,
+                            color: Colors.red.shade500,
+                          ),
+                          onPressed: () {
+                            print("Pressed");
+                          }),
+                    ),
+                    Material(
+                      elevation: 2.0,
+                      shadowColor: Colors.pinkAccent,
+                      child: IconButton(
+                          icon: Icon(
+                            FontAwesomeIcons.facebook,
+                            size: 35,
+                            color: Colors.red.shade500,
+                          ),
+                          onPressed: () {
+                            print("Pressed");
+                          }),
+                    ),
+                    Material(
+                      elevation: 2.0,
+                      shadowColor: Colors.pinkAccent,
+                      child: IconButton(
+                          icon: Icon(
+                            FontAwesomeIcons.twitter,
+                            size: 35,
+                            color: Colors.red.shade500,
+                          ),
+                          onPressed: () {
+                            print("Pressed");
+                          }),
+                    ),
                   ],
                 ),
                 SizedBox(
-                  height: 80,
+                  height: 70,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -147,9 +180,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     TextButton(
                         onPressed: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => RegisterScreen())
-                          );
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => RegisterScreen()));
                         },
                         child: Text(
                           'Sign up',
