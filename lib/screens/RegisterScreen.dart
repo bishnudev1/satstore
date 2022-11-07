@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp/screens/HomeScreen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:foodapp/screens/RegisterScreen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
+  TextEditingController cpassController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -21,7 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 40.0, horizontal: 40.0),
+          padding: EdgeInsets.symmetric(vertical:40.0, horizontal: 40.0),
           child: Form(
             key: _formKey,
             child: Column(
@@ -38,19 +38,20 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 50,
+                  height: 40,
                 ),
                 Text(
-                  'Log in to Account',
+                  'Create your Account',
                   style: TextStyle(
                       color: Colors.grey.shade700,
                       fontSize: 18,
                       fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
-                  height: 35.0,
+                  height: 45.0,
                 ),
                 TextFormField(
+                  controller: emailController,
                   decoration: InputDecoration(
                     hintText: 'Email',
                     labelText: 'Email',
@@ -65,9 +66,25 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 10.0,
                 ),
                 TextFormField(
+                  controller: passController,
                   decoration: InputDecoration(
                     hintText: 'Password',
                     labelText: 'Password',
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(width: 0.4, color: Colors.grey)),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                TextFormField(
+                  controller: cpassController,
+                  decoration: InputDecoration(
+                    hintText: 'Confirm Password',
+                    labelText: 'Confirm Password',
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(width: 0.4, color: Colors.grey)),
                     focusedBorder: OutlineInputBorder(
@@ -133,28 +150,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         onPressed: () {
                           print("Pressed");
                         }),
-                  ],
-                ),
-                SizedBox(
-                  height: 80,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Don't have an account?",
-                      style: TextStyle(color: Colors.grey.shade700),
-                    ),
-                    TextButton(
-                        onPressed: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => RegisterScreen())
-                          );
-                        },
-                        child: Text(
-                          'Sign up',
-                          style: TextStyle(color: Colors.grey.shade900),
-                        ))
                   ],
                 ),
               ],
